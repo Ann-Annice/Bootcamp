@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Hotel {
     static int total=0;
-
     public static void main(String[] args) {
         int y;
+        Fooditems fooditems=new Fooditems(10,15,30,30,35);
+        Fooditems takeawayfooditems=new Fooditems(10,20,30,30,35);
         Scanner s=new Scanner(System.in);
         while (true)
         {
@@ -14,7 +15,7 @@ public class Hotel {
             System.out.println("1.Tea 10$");
             System.out.println("2.juice 30$");
             System.out.println("3.cake 30$");
-            System.out.println("4.sweet porotta 15$");
+            System.out.println("4.coffee 15$");
             System.out.println("5.ice cream 35$");
             System.out.println("6.Bill");
             System.out.println("7.exit");
@@ -23,7 +24,7 @@ public class Hotel {
                 case 1:
                     System.out.println("howmany quantity:");
                     int m=s.nextInt();
-                    total=(10*m)+total;
+                    total=total+(fooditems.getTea());
                     break;
                 case 2:
                     System.out.println("howmany quantity:");
