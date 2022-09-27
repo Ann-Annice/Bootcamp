@@ -33,8 +33,15 @@ public class Calculator {
                     System.out.println(z);
                     break;
                 case 3:
-                    z = x / y;
-                    System.out.println(z);
+                    try
+                    {
+                        z = x / y;
+                        System.out.println(z);
+                    }
+                   catch(ArithmeticException e)
+                   {
+                       System.out.println(e);
+                   }
                     break;
                 case 4:
                     z = x * y;
