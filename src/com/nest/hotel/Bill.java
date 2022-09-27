@@ -1,19 +1,25 @@
 package com.nest.hotel;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Bill {
     static int total=0;
     public static void main(String[] args) {
         int x,y;
+        String name;
         Fooditems fooditems = new Fooditems(10, 15, 30, 30, 35);
         Fooditems takeawayfooditems = new Fooditems(10, 20, 30, 30, 35);
+        HashMap<String,String> map=new HashMap<String,String>();
+        ArrayList<String> transactionList=new ArrayList<>();
         Scanner s = new Scanner(System.in);
        outer: while(true)
         {
             System.out.println("1.Dinning");
             System.out.println("2.Takeaway");
-            System.out.println("3.exit");
+            System.out.println("3.View transaction");
+            System.out.println("4.exit");
             x=s.nextInt();
             switch (x)
             {
@@ -59,6 +65,12 @@ public class Bill {
                                 break;
                             case 6:
                                 System.out.println("total bill =" + total);
+                                System.out.println("Enter customer name:");
+                                name=s.next();
+                                map.put("customer",name);
+                                map.put("amount",String.valueOf(total));
+                                map.put("mode","dinein");
+                                transactionList.add(String.valueOf(map));
                                 break;
                             case 7:
                                 continue outer;
@@ -111,6 +123,12 @@ public class Bill {
                                 break;
                             case 6:
                                 System.out.println("total bill =" + total);
+                                System.out.println("Enter customer name:");
+                                name=s.next();
+                                map.put("customer",name);
+                                map.put("amount",String.valueOf(total));
+                                map.put("mode","takeaway");
+                                transactionList.add(String.valueOf(map));
                                 break;
                             case 7:
                                 continue outer;
@@ -119,6 +137,10 @@ public class Bill {
                         }
                     }
                 case 3:
+                    System.out.println(transactionList);
+                    break ;
+
+                case 4:
                     System.exit(0);
 
 
